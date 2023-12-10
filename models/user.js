@@ -18,7 +18,10 @@ const userSchema = new Schema({
     default: "starter",
   },
 
-  token: String,
+  token: {
+    type: String,
+    default: null,
+  },
 });
 
 userSchema.methods.setPassword = function (password) {
