@@ -5,6 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const contactsRouter = require("./routes/api/contacts");
+const userRouter = require("./routes/api/user");
+// const usersRouter = require("./routes/api/currentUser");
 
 dotenv.config();
 
@@ -13,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/contacts", contactsRouter);
+app.use("/api/users", userRouter);
+// app.use("/api/");
 
 const { DB_HOST } = process.env;
 
