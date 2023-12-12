@@ -22,7 +22,7 @@ const auth = async (req, res, next) => {
       throw new Unauthorized("Not authorized");
     }
     req.user = user;
-    // console.log(user);
+
     next();
   } catch (error) {
     if (error.message === "Invalid signature") {
