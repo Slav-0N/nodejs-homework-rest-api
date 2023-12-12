@@ -14,19 +14,21 @@ router.get("/", auth, ctrlWrapper(ctrl.getAll));
 
 router.post("/", auth, validation(joiSchema), ctrlWrapper(ctrl.addContact));
 
-router.get("/:id", isValidId, ctrlWrapper(ctrl.getById));
+router.get("/:id", auth, isValidId, ctrlWrapper(ctrl.getById));
 
 router.put(
   "/:id",
+  auth,
   isValidId,
   validation(joiSchema),
   ctrlWrapper(ctrl.changeById)
 );
 
-router.delete("/:id", isValidId, ctrlWrapper(ctrl.deleteContact));
+router.delete("/:id", auth, isValidId, ctrlWrapper(ctrl.deleteContact));
 
 router.patch(
   "/:id/favorite",
+  auth,
   isValidId,
   validation(favoriteJoiSchema),
   ctrlWrapper(ctrl.updateFavorite)
