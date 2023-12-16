@@ -20,6 +20,7 @@ router.patch(
   "/avatars",
   auth,
   upload.single("avatar"),
+
   ctrlWrapper(ctrl.updateAvatar)
 );
 
