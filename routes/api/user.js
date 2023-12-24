@@ -26,4 +26,6 @@ router.patch(
 
 router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
 
+router.post("/verify", ctrlWrapper(ctrl.sendVerifyLetterAgain));
+
 module.exports = router;

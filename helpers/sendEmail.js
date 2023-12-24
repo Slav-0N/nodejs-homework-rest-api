@@ -16,11 +16,4 @@ const sendEmail = async (data) => {
   }
 };
 
-// const email = {
-//   to: "tobalaf714@wikfee.com",
-//   from: "sovilgo@gmail.com",
-//   subject: "Новая заява з сайту",
-//   html: "<p> З сайту надійшла нова заява</p>",
-// };
-
 module.exports = sendEmail;
