@@ -2,6 +2,11 @@
 const { User } = require("../../models");
 const sendEmail = require("../../helpers/sendEmail");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { DOMAIN } = process.env;
+
 const sendVerifyLetterAgain = async (req, res) => {
   const { email } = req.body;
 
@@ -22,10 +27,12 @@ const sendVerifyLetterAgain = async (req, res) => {
         .json({ message: "Verification has already been passed" });
     }
     // const user = await User.findOne({ verificationToken });
+
+    const { verificationToken } = user;
     const mail = {
       to: email,
       subject: "Підтвердження адреси email",
-      html: `<a target="_blank"  href="http://localhost:3000/api/users/verify/${user.verificationToken}" > Натисни для підтвердження email</a>`,
+      html: `<a target="_blank"  href="${DOMAIN}api/users/verify/${verificationToken}" > Натисни для підтвердження email</a>`,
     };
     await sendEmail(mail);
 
